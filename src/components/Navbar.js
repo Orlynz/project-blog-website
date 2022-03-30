@@ -10,9 +10,9 @@ const NavbarComponent = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Home</Nav.Link>
-            <Nav.Link href="#features">About</Nav.Link>
-            <Nav.Link href="#features">Contact</Nav.Link>
+            <Nav.Link href="">Home</Nav.Link>
+            <Nav.Link href="">About</Nav.Link>
+            <Nav.Link href="">Contact</Nav.Link>
             {/* <Nav.Link href="#pricing">Pricing</Nav.Link> */}
             {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -27,7 +27,7 @@ const NavbarComponent = () => {
             </NavDropdown> */}
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">Back To Main Page</Nav.Link>
+            <Nav.Link href=""><strong> Back To Main Page </strong></Nav.Link>
             {/* <Nav.Link eventKey={2} href="#memes">
               Dank memes
             </Nav.Link> */}
