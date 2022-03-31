@@ -48,7 +48,7 @@ const Home2 = () => {
         <div class="main">
           <div class="container">
             <div class="blog">
-              <h2 class="h2">Latest Blog Post</h2>
+              {/* <h2 class="h2">Latest Blog Post</h2> */}
 
               <div class="blog-card-group">
                 <div class="blog-card">
@@ -62,7 +62,7 @@ const Home2 = () => {
                   </div>
 
                   <div class="blog-content-wrapper">
-                    <button class="blog-topic text-tiny">Database</button>
+                    {/* <button class="blog-topic text-tiny">Database</button> */}
 
                     <h3>
                       <a href="#" class="h3">
@@ -114,9 +114,9 @@ const Home2 = () => {
                   </div>
 
                   <div class="blog-content-wrapper">
-                    <button class="blog-topic text-tiny">
+                    {/* <button class="blog-topic text-tiny">
                       Web Performance
-                    </button>
+                    </button> */}
 
                     <h3>
                       <a href="" class="h3">
@@ -167,7 +167,7 @@ const Home2 = () => {
                   </div>
 
                   <div class="blog-content-wrapper">
-                    <button class="blog-topic text-tiny">Database</button>
+                    {/* <button class="blog-topic text-tiny">Database</button> */}
 
                     <h3>
                       <a href="" class="h3">
@@ -211,7 +211,9 @@ const Home2 = () => {
                 </div>
               </div>
 
-              <button class="btn load-more justify-content-center">Load More</button>
+              <button class="btn load-more justify-content-center">
+                Load More
+              </button>
             </div>
 
             <div class="aside">
@@ -290,29 +292,38 @@ const Home2 = () => {
                 </div>
               </div>
 
-              {/* <div class="newsletter">
-              <h2 class="h2">Newsletter</h2>
+              <div class="newsletter">
+                <h2 class="h2">Latest Post</h2>
 
-              <div class="wrapper">
-                <p>
-                  Subscribe to our newsletter to be among the first to keep up
-                  with the latest updates.
-                </p>
+                <div class="wrapper">
+                  <div class="wrapper-box">
+                    <img
+                      src="https://insights.g2academy.co/wp-content/uploads/2021/11/Siswa-Bootcamp-G2Academy-min-scaled.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="wrapper-text">
+                    <p>
+                      Raih Beasiswa Bootcamp G2Academy Dan Wujudkan Impianmu
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="wrapper">
+                  <div class="wrapper-box">
+                    <img
+                      src="https://insights.g2academy.co/wp-content/uploads/2021/11/Siswa-Bootcamp-G2Academy-min-scaled.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="wrapper-text">
+                    <p>
+                      Raih Beasiswa Bootcamp G2Academy Dan Wujudkan Impianmu
+                    </p>
+                  </div>
+                </div>
 
-                <form action="#">
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email Address"
-                    required
-                  />
-
-                  <button type="submit" class="btn btn-primary">
-                    Subscribe
-                  </button>
-                </form>
               </div>
-            </div> */}
             </div>
           </div>
         </div>
