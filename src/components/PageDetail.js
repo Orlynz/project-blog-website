@@ -1,6 +1,6 @@
 import React from "react";
-import { Image } from "react-bootstrap";
-import "../home.css";
+import { Image, Form, Card, Button } from "react-bootstrap";
+// import "../home.css";
 
 const PageDetail = () => {
   return (
@@ -8,7 +8,7 @@ const PageDetail = () => {
       <div className="PageDetail">
         <div className="title">
           <h2>Java Coding Tips For Beginners</h2>
-          <h6>by Admin G2 | Dec 8, 2021 | Educational | 0 comments</h6>
+          <h6>by : Admin G2 | Dec 8, 2021 | Educational | 0 comments</h6>
         </div>
         <div className="PageDetail-wrapper">
           <Image
@@ -17,30 +17,30 @@ const PageDetail = () => {
           />
           <h5>Spread the love</h5>
           <ul class="social-link">
-                    <li>
-                      <a href="#" class="icon-box">
-                        <ion-icon name="logo-instagram"></ion-icon>
-                      </a>
-                      </li>
+            <li>
+              <a href="#" class="icon-box">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
 
-                    <li>
-                      <a href="#" class="icon-box">
-                      <ion-icon name="logo-whatsapp"></ion-icon>
-                      </a>
-                    </li>
+            <li>
+              <a href="#" class="icon-box">
+                <ion-icon name="logo-whatsapp"></ion-icon>
+              </a>
+            </li>
 
-                    <li>
-                      <a href="#" class="icon-box">
-                        <ion-icon name="logo-twitter"></ion-icon>
-                      </a>
-                    </li>
+            <li>
+              <a href="#" class="icon-box">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
 
-                    <li>
-                      <a href="#" class="icon-box">
-                        <ion-icon name="logo-facebook"></ion-icon>
-                      </a>
-                    </li>
-                  </ul>
+            <li>
+              <a href="#" class="icon-box">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+          </ul>
           <p>
             Java Coding Tips for Beginners – Used by over 10 million developers
             and running on 56 billion devices globally, Java is easily one of
@@ -60,6 +60,54 @@ const PageDetail = () => {
             disappear anytime soon and will most probably still be around even
             if developers lose interest.
           </p>
+        </div>
+
+        <br />
+        <div className="coment">
+          <h4>0 Comment</h4>
+          <h4>Submit a Comment</h4>
+          <p>
+            Your email address will not be published. Required fields are marked
+            *
+          </p>
+          <Card>
+            <Form>
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlInput1"
+              >
+                <Form.Label>Username</Form.Label>
+                <Form.Control type="text" placeholder="Username" />
+              </Form.Group>
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlInput2"
+              >
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email" placeholder="name@example.com" />
+              </Form.Group>
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+              >
+                <Form.Label>Description</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  placeholder="Add Your Comment"
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Check
+                  required
+                  label="Save my name, email, and website in this browser for the next time I comment."
+                  feedback="You must agree before submitting."
+                  feedbackType="invalid"
+                />
+              </Form.Group>
+              <Button type="submit">Submit Comment</Button>
+            </Form>
+          </Card>
         </div>
       </div>
     </div>
