@@ -19,25 +19,57 @@ const PageDetail = () => {
           <ul class="social-link">
             <li>
               <a href="#" class="icon-box">
-                <ion-icon name="logo-instagram"></ion-icon>
+                <Image
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1200px-Instagram_logo_2016.svg.png"
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "100%",
+                  }}
+                  alt=""
+                />
               </a>
             </li>
 
             <li>
               <a href="#" class="icon-box">
-                <ion-icon name="logo-whatsapp"></ion-icon>
+                <Image
+                  src="https://play-lh.googleusercontent.com/bYtqbOcTYOlgc6gqZ2rwb8lptHuwlNE75zYJu6Bn076-hTmvd96HH-6v7S0YUAAJXoJN"
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "100%",
+                  }}
+                  alt=""
+                />
               </a>
             </li>
 
             <li>
               <a href="#" class="icon-box">
-                <ion-icon name="logo-twitter"></ion-icon>
+                <Image
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBgiEFoK2MpvDZf6xCSwZ0v5hMoC4aQ8qzeaCZK8tKCB6EDKR08LfV-fVcq-P3W1HdVXw&usqp=CAU"
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "100%",
+                  }}
+                  alt=""
+                />
               </a>
             </li>
 
             <li>
               <a href="#" class="icon-box">
-                <ion-icon name="logo-facebook"></ion-icon>
+                <Image
+                  src="https://www.facebook.com/images/fb_icon_325x325.png"
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "100%",
+                  }}
+                  alt=""
+                />
               </a>
             </li>
           </ul>
@@ -77,24 +109,30 @@ const PageDetail = () => {
                 controlId="exampleForm.ControlInput1"
               >
                 <Form.Label>Username</Form.Label>
-                <Form.Control type="text" placeholder="Username" />
+                <Form.Control type="text" placeholder="Username" required />
               </Form.Group>
               <Form.Group
                 className="mb-3"
                 controlId="exampleForm.ControlInput2"
               >
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="name@example.com" />
+                <Form.Control
+                  type="email"
+                  placeholder="name@example.com"
+                  required
+                />
               </Form.Group>
               <Form.Group
                 className="mb-3"
                 controlId="exampleForm.ControlTextarea1"
+                required
               >
                 <Form.Label>Description</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={3}
                   placeholder="Add Your Comment"
+                  required
                 />
               </Form.Group>
               <Form.Group className="mb-3">
