@@ -7,11 +7,13 @@ const aboutFounder = () => {
       {/* Desktop */}
       <div class="container">
         <div class="d-none d-md-block">
-          <div class="row mt-4">
+          <div class="row mt-5 ">
             <div class="col-md-6">
               <div class="d-flex h-100">
                 <div class="justify-content-center align-self-center">
-                  <h4 style={{ color: "orange" }}>Pendiri</h4>
+                  <h4 style={{ color: "orange" }}>
+                    <b> Pendiri </b>
+                  </h4>
                   <h3>
                     <b>Ferry Sutanto</b>
                   </h3>

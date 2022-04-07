@@ -7,8 +7,8 @@ const PageDetail = () => {
     <div className="container">
       <div className="PageDetail">
         <div className="title">
-          <h2>Java Coding Tips For Beginners</h2>
-          <h6>by : Admin G2 | Dec 8, 2021 | Educational | 0 comments</h6>
+          <h2>Tip Coding Java Untuk Pemula</h2>
+          <h6>by : Admin G2 | Des 8, 2021 | Pendidikan | 0 comments</h6>
         </div>
         <div className="PageDetail-wrapper">
           <Image
@@ -74,23 +74,24 @@ const PageDetail = () => {
             </li>
           </ul>
           <p>
-            Java Coding Tips for Beginners – Used by over 10 million developers
-            and running on 56 billion devices globally, Java is easily one of
-            the most popular programming languages out there. Many developers
-            prefer it over others because of how flexible and portable it is,
-            enabling them to write code for machines of varying architectures
-            and platforms. Having launched in the early 90s, Java has withstood
-            the test of time. It is still widely utilized even as technology
-            continues to evolve. Usually, programming languages tend to become
-            obsolete or diminish in relevance as new technology emerges. This is
-            because a language has to keep upgrading and changing to adapt in
-            different computing environments. If not, then it will become
-            redundant. In defiance of being outdated, Java has proven to
-            persevere and improve with every released upgrade. For this reason,
-            Java is still used in every nook and corner; from desktop and web
-            applications, to game consoles and mobile phones. It’s unlikely to
-            disappear anytime soon and will most probably still be around even
-            if developers lose interest.
+            Kiat Pengodean Java untuk Pemula – Digunakan oleh lebih dari 10 juta
+            pengembang dan berjalan di 56 miliar perangkat secara global, Java
+            dengan mudah menjadi salah satu bahasa pemrograman paling populer di
+            luar sana. Banyak pengembang lebih menyukainya daripada yang lain
+            karena fleksibilitas dan portabelnya, memungkinkan mereka untuk
+            menulis kode untuk mesin dari berbagai arsitektur dan platform.
+            Diluncurkan pada awal 90-an, Java telah bertahan dalam ujian waktu.
+            Ini masih banyak digunakan bahkan ketika teknologi terus berkembang.
+            Biasanya, bahasa pemrograman cenderung menjadi usang atau berkurang
+            relevansinya dengan munculnya teknologi baru. Ini karena bahasa
+            harus terus ditingkatkan dan diubah untuk beradaptasi di lingkungan
+            komputasi yang berbeda. Jika tidak, maka itu akan menjadi
+            berlebihan. Meskipun sudah ketinggalan zaman, Java telah terbukti
+            bertahan dan meningkat dengan setiap peningkatan yang dirilis. Untuk
+            alasan ini, Java masih digunakan di setiap sudut; dari desktop dan
+            aplikasi web, hingga konsol game dan ponsel. Itu tidak mungkin
+            menghilang dalam waktu dekat dan kemungkinan besar akan tetap ada
+            bahkan jika pengembang kehilangan minat.
           </p>
         </div>
 

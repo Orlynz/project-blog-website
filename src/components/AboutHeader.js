@@ -13,13 +13,15 @@ const About = () => {
               <div class="d-flex h-100">
                 <div class="justify-content-center align-self-center">
                   <h2>
-                    <strong>Tingkatkan </strong>
-                    <br />
-                    Potensi Geek Anda
+                    <strong>
+                      Tingkatkan
+                      <br />
+                      Potensi Geek Anda
+                    </strong>
                   </h2>
                   <p>
-                    Kami menghadirkan solusi transformatif yang dirancang untuk
-                    membantu Anda berkembang di dunia digital.
+                    Kami menghadirkan solusi transformatif yang dirancang <br />
+                    untuk membantu Anda berkembang di dunia digital.
                   </p>
                   <Link
                     class="btn btn-lg"

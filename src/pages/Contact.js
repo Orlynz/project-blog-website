@@ -17,7 +17,7 @@ const Contact = () => {
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5000408248425!2d106.79639131431004!3d-6.197564662439782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f6958ac2c5f9%3A0x76d1835570a756ad!2sCar%20Park%20Wisma%20Barito%20Pacific%20Tower%20B!5e0!3m2!1sid!2sid!4v1649143588698!5m2!1sid!2sid"
                 width="90%"
-                height="90%"
+                height="95%"
                 style={{ border: "0" }}
                 allowfullscreen=""
                 loading="lazy"

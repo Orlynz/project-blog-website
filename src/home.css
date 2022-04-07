@@ -257,7 +257,7 @@ footer {
     background-color: lightgray;
   } */
   .newsletter {
-    /* position: sticky; */
+    position: sticky;
     top: 3rem;
     margin-bottom: 98px;
   }
@@ -316,4 +316,10 @@ footer {
   z-index: 1;
   color: #fff;
   background-color: orange;
+}
+#btn-back-to-top {
+  position: fixed;
+  bottom: 8%;
+  right: 10%;
+  display: block;
 }
