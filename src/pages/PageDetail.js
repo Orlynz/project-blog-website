@@ -1,6 +1,5 @@
 import React from "react";
 import { Image, Form, Card, Button } from "react-bootstrap";
-// import "../home.css";
 
 const PageDetail = () => {
   return (
@@ -18,7 +17,10 @@ const PageDetail = () => {
           <h5>Spread the love</h5>
           <ul class="social-link">
             <li>
-              <a href="#" class="icon-box">
+              <a
+                href="https://www.instagram.com/g2academyindonesia/"
+                class="icon-box"
+              >
                 <Image
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1200px-Instagram_logo_2016.svg.png"
                   style={{
@@ -32,7 +34,10 @@ const PageDetail = () => {
             </li>
 
             <li>
-              <a href="#" class="icon-box">
+              <a
+                href="https://api.whatsapp.com/send?text=Raih%20Beasiswa%20Bootcamp%20G2Academy%20Dan%20Wujudkan%20Impianmu%20https%3A%2F%2Finsights.g2academy.co%2Fg2academy-updates%2Fraih-beasiswa-bootcamp-g2academy%2F"
+                class="icon-box"
+              >
                 <Image
                   src="https://play-lh.googleusercontent.com/bYtqbOcTYOlgc6gqZ2rwb8lptHuwlNE75zYJu6Bn076-hTmvd96HH-6v7S0YUAAJXoJN"
                   style={{
@@ -46,7 +51,10 @@ const PageDetail = () => {
             </li>
 
             <li>
-              <a href="#" class="icon-box">
+              <a
+                href="https://twitter.com/intent/tweet?text=A%20Simple%20Introduction%20to%20Cloud%20Computing&url=https%3A%2F%2Finsights.g2academy.co%2Fg2academy-updates%2Fa-simple-introduction-to-cloud-computing%2F"
+                class="icon-box"
+              >
                 <Image
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBgiEFoK2MpvDZf6xCSwZ0v5hMoC4aQ8qzeaCZK8tKCB6EDKR08LfV-fVcq-P3W1HdVXw&usqp=CAU"
                   style={{
@@ -60,7 +68,10 @@ const PageDetail = () => {
             </li>
 
             <li>
-              <a href="#" class="icon-box">
+              <a
+                href="https://www.facebook.com/g2academygeeks?_rdc=2&_rdr"
+                class="icon-box"
+              >
                 <Image
                   src="https://www.facebook.com/images/fb_icon_325x325.png"
                   style={{

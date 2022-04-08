@@ -1,16 +1,15 @@
 import React from "react";
 import { Image } from "react-bootstrap";
 import { useState } from "react";
-// import "../Home3.css";
+import ScrollToTop from "./ScrollToTop";
 
 import useInfiniteScroll from "react-infinite-scroll-hook";
-// import $ from "jquery";
 
 const Home2 = () => {
   const [data, setData] = useState([]);
 
   const [since, setSince] = useState(0);
-  const [limit, setLimit] = useState(3);
+  const [limit, setLimit] = useState(4);
 
   const [loading, setLoading] = useState(false);
 
@@ -55,7 +54,7 @@ const Home2 = () => {
                       <div class="blog-card content">
                         <div class="blog-card-banner">
                           <Image
-                            src="https://insights.g2academy.co/wp-content/uploads/2021/11/introduction-to-cloud-computing-1080x675.jpg"
+                            src="https://insights.g2academy.co/wp-content/uploads/2021/12/Java-tips-for-beginners-scaled.jpg"
                             alt=""
                             width="400"
                             class="blog-banner-img"
@@ -64,20 +63,20 @@ const Home2 = () => {
 
                         <div class="blog-content-wrapper">
                           <h3>
-                            <a href="" class="h3">
-                              How to connect a React frontend with a
-                              NodeJS/Express backend
+                            <a href="/pageDetail" class="h3">
+                              Apa itu Java? Java digunakan untuk apa? Tip & Trik
+                              Pemrograman Java
                             </a>
                           </h3>
 
                           <p class="blog-text">
-                            The MERN (MongoDB, Express, React, NodeJS) stack is
-                            very popular for making full stack applications,
-                            utilizing Javascript for both the backend and
-                            frontend as well as a document-oriented or non
-                            relational database (MongoDB), meaning that it's
-                            structured like JSON rather than a large excel sheet
-                            like SQL databases are.
+                            Java adalah bahasa pemrograman dan platform
+                            komputasi yang pertama kali dirilis oleh Sun
+                            Microsystems pada tahun 1995. Java telah berkembang
+                            dari awal yang sederhana menjadi kekuatan sebagian
+                            besar dunia digital saat ini, dengan menyediakan
+                            platform yang andal di mana banyak layanan dan
+                            aplikasi dibangun.
                           </p>
 
                           <div class="wrapper-flex">
@@ -148,7 +147,10 @@ const Home2 = () => {
 
                 <ul className="social-link">
                   <li>
-                    <a href="#" class="icon-box discord">
+                    <a
+                      href="https://api.whatsapp.com/send?text=Raih%20Beasiswa%20Bootcamp%20G2Academy%20Dan%20Wujudkan%20Impianmu%20https%3A%2F%2Finsights.g2academy.co%2Fg2academy-updates%2Fraih-beasiswa-bootcamp-g2academy%2F"
+                      class="icon-box discord"
+                    >
                       <Image
                         src="https://play-lh.googleusercontent.com/bYtqbOcTYOlgc6gqZ2rwb8lptHuwlNE75zYJu6Bn076-hTmvd96HH-6v7S0YUAAJXoJN"
                         style={{
@@ -162,7 +164,10 @@ const Home2 = () => {
                   </li>
 
                   <li>
-                    <a href="#" class="icon-box twitter">
+                    <a
+                      href="https://twitter.com/intent/tweet?text=A%20Simple%20Introduction%20to%20Cloud%20Computing&url=https%3A%2F%2Finsights.g2academy.co%2Fg2academy-updates%2Fa-simple-introduction-to-cloud-computing%2F"
+                      class="icon-box twitter"
+                    >
                       <Image
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBgiEFoK2MpvDZf6xCSwZ0v5hMoC4aQ8qzeaCZK8tKCB6EDKR08LfV-fVcq-P3W1HdVXw&usqp=CAU"
                         style={{
@@ -176,7 +181,10 @@ const Home2 = () => {
                   </li>
 
                   <li>
-                    <a href="#" class="icon-box facebook">
+                    <a
+                      href="https://www.facebook.com/g2academygeeks?_rdc=2&_rdr"
+                      class="icon-box facebook"
+                    >
                       <Image
                         src="https://www.facebook.com/images/fb_icon_325x325.png"
                         style={{
@@ -244,6 +252,7 @@ const Home2 = () => {
               </div>
             </div>
           </div>
+          <ScrollToTop />
         </div>
       </div>
     </main>
