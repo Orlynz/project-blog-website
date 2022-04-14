@@ -1,45 +1,73 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Image } from "react-bootstrap";
-import { useState } from "react";
+// import { useState } from "react";
 import ScrollToTop from "./ScrollToTop";
+import axios from "axios";
 
-import useInfiniteScroll from "react-infinite-scroll-hook";
+// import useInfiniteScroll from "react-infinite-scroll-hook";
 
 const Home2 = () => {
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
 
-  const [since, setSince] = useState(0);
-  const [limit, setLimit] = useState(4);
+  // const [since, setSince] = useState(0);
+  // const [limit, setLimit] = useState(3);
 
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
-  const [hasNextPage, setHasNextPage] = useState(true);
+  // const [hasNextPage, setHasNextPage] = useState(true);
 
-  const fetchmore = async (since) => {
-    setLoading(true);
-    setSince(since + limit);
-    try {
-      const response = await fetch(
-        `https://api.github.com/users?since=${since}&per_page=${limit}`
-      );
-      const json = await response.json();
-      return setData((data) => [...data, ...json]);
-    } catch (e) {
-      console.log(e);
-      return setHasNextPage(false);
-    } finally {
-      return setLoading(false);
-    }
+  // const fetchmore = async (since) => {
+  //   setLoading(true);
+  //   setSince(since + limit);
+  //   try {
+  //     const response = await fetch(
+  //       `https://api.github.com/users?since=${since}&per_page=${limit}`
+  //     );
+  //     const json = await response.json();
+  //     return setData((data) => [...data, ...json]);
+  //   } catch (e) {
+  //     console.log(e);
+  //     return setHasNextPage(false);
+  //   } finally {
+  //     return setLoading(false);
+  //   }
+  // };
+
+  // const [sentryRef] = useInfiniteScroll({
+  //   loading,
+  //   hasNextPage: hasNextPage,
+  //   delayInMs: 500,
+  //   onLoadMore: () => {
+  //     fetchmore(since);
+  //   },
+  // });
+
+  const [post, setPost] = useState([]);
+
+  useEffect(() => {
+    getPost();
+  }, []);
+
+  const getPost = async () => {
+    const post = await axios.get("http://localhost:4000/post");
+    setPost(post.data);
   };
 
-  const [sentryRef] = useInfiniteScroll({
-    loading,
-    hasNextPage: hasNextPage,
-    delayInMs: 500,
-    onLoadMore: () => {
-      fetchmore(since);
-    },
-  });
+  // const deletePost = async (id) => {
+  //   await axios.delete(`http://localhost:4000/post/${id}`);
+  //   getPost();
+  // };
+
+  // const [kategori, setKategori] = useState([]);
+
+  // useEffect(() => {
+  //   getKategori();
+  // }, []);
+
+  // const getKategori = async () => {
+  //   const kategori = await axios.get("http://localhost:4000/kategori");
+  //   setKategori(kategori.data);
+  // };
 
   return (
     <main>
@@ -47,59 +75,51 @@ const Home2 = () => {
         <div class="container">
           <div class="blog">
             <div class="blog-card-group">
-              {data &&
-                data.map((item, index) => {
-                  return (
-                    <div key={index} className="item">
-                      <div class="blog-card content">
-                        <div class="blog-card-banner">
-                          <Image
-                            src="https://insights.g2academy.co/wp-content/uploads/2021/12/Java-tips-for-beginners-scaled.jpg"
-                            alt=""
-                            width="400"
-                            class="blog-banner-img"
-                          />
-                        </div>
+              {post.map((posts) => {
+                return (
+                  <div className="item">
+                    <div class="blog-card content">
+                      <div class="blog-card-banner">
+                        <img
+                          src={"assets/" + posts.image}
+                          alt=""
+                          width="400"
+                          class="blog-banner-img"
+                        />
+                      </div>
 
-                        <div class="blog-content-wrapper">
-                          <h3>
-                            <a href="/pageDetail" class="h3">
-                              Apa itu Java? Java digunakan untuk apa? Tip & Trik
-                              Pemrograman Java
+                      <div class="blog-content-wrapper">
+                        <h3>
+                          <a href="/pageDetail" class="h3">
+                            {posts.judul}
+                          </a>
+                        </h3>
+
+                        <p class="blog-text">{posts.deskripsi}</p>
+
+                        <div class="wrapper-flex">
+                          <div class="wrapper">
+                            <a href="#" class="h4">
+                              {posts.nama}
                             </a>
-                          </h3>
 
-                          <p class="blog-text">
-                            Java adalah bahasa pemrograman dan platform
-                            komputasi yang pertama kali dirilis oleh Sun
-                            Microsystems pada tahun 1995. Java telah berkembang
-                            dari awal yang sederhana menjadi kekuatan sebagian
-                            besar dunia digital saat ini, dengan menyediakan
-                            platform yang andal di mana banyak layanan dan
-                            aplikasi dibangun.
-                          </p>
-
-                          <div class="wrapper-flex">
-                            <div class="wrapper">
-                              <a href="#" class="h4">
-                                Julia Walker
-                              </a>
-
-                              <p class="text-sm">
-                                <time datetime="2021-09-21">Sep 21, 2021</time>
-                              </p>
-                            </div>
+                            <p class="text-sm">
+                              <time datetime="2021-09-21">
+                                {posts.tanggal_upload}
+                              </time>
+                            </p>
                           </div>
                         </div>
                       </div>
                     </div>
-                  );
-                })}
-              {(loading || hasNextPage) && (
+                  </div>
+                );
+              })}
+              {/* {(loading || hasNextPage) && (
                 <div className="loader" ref={sentryRef}>
                   <h5>Loading...</h5>
                 </div>
-              )}
+              )} */}
             </div>
 
             {/* <button class="btn load-more">Load More</button> */}
@@ -112,21 +132,19 @@ const Home2 = () => {
           <div class="aside">
             <div class="topics">
               <h2 class="h2">Categories</h2>
-
+              {/* {kategori.map((kategories) => {})} */}
               <a href="#" class="topic-btn">
                 {/* <div class="icon-box">
                     <ion-icon name="server-outline"></ion-icon>
                   </div> */}
                 <p>Pendidikan</p>
               </a>
-
               <a href="#" class="topic-btn">
                 {/* <div class="icon-box">
                     <ion-icon name="accessibility-outline"></ion-icon>
                   </div> */}
                 <p>Pembaruan G2 Academy</p>
               </a>
-
               <a href="#" class="topic-btn">
                 {/* <div class="icon-box">
                     <ion-icon name="rocket-outline"></ion-icon>
@@ -134,7 +152,6 @@ const Home2 = () => {
                 <p>Teknologi</p>
               </a>
             </div>
-
             <div class="contact">
               <h2 class="h2">About Us</h2>
 
@@ -199,10 +216,8 @@ const Home2 = () => {
                 </ul>
               </div>
             </div>
-
             <div class="newsletter">
               <h2 class="h2">Latest Post</h2>
-
               <div class="wrapper">
                 <div class="wrapper-box">
                   <img

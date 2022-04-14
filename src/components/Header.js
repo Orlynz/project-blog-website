@@ -1,5 +1,6 @@
-import React from "react";
+// import React, { useState, useEffect } from "react";
 import { Image } from "react-bootstrap";
+// import axios from "axios";
 
 const Home = () => {
   return (
@@ -40,7 +41,7 @@ const Home = () => {
         <div class="d-sm-block d-md-none">
           <div class="row mt-4">
             <div class="col-md-6 mb-3">
-              <img
+              <Image
                 src="https://www.g2academy.co/img/hero.4e7737ff.png"
                 width="100%"
               />
