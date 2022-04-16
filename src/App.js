@@ -28,7 +28,7 @@ function App() {
             <Contact />
             <Footer />
           </Route>
-          <Route path="/pageDetail">
+          <Route path="/pageDetail/:id">
             <Navbar />
             <PageDetail />
             <Footer />

@@ -1,19 +1,71 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useHistory, useParams } from "react-router-dom";
 import { Image, Form, Card, Button } from "react-bootstrap";
 
 const PageDetail = () => {
+  const { id } = useParams();
+
+  const [title, setTitle] = useState("");
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
+
+  const [comment, setComment] = useState([]);
+  const [username, setUsername] = useState("");
+  const [text, setText] = useState("");
+  const history = useHistory();
+
+  useEffect(() => {
+    getAllComment();
+  }, []);
+
+  const getAllComment = async () => {
+    const posts = await axios.get("http://localhost:2020/api/comment/");
+    setComment(posts.data);
+  };
+
+  useEffect(() => {
+    const getOnePost = async () => {
+      const { data } = await axios.get(
+        `http://localhost:2020/api/post/getPostComment/${id}`
+      );
+      console.log(data);
+
+      setTitle(data.title);
+      setName(data.name);
+      setDescription(data.description);
+      setImage(data.image);
+
+      setComment(data.comment);
+    };
+    getOnePost();
+  }, [id]);
+
+  const addCommentHandler = async (e) => {
+    e.preventDefault();
+
+    let comment = {
+      post_id: id,
+      username: username,
+      text: text,
+    };
+
+    await axios.post(`http://localhost:2020/api/comment/${id}`, comment);
+    history.push("/");
+  };
+
   return (
     <div className="container">
       <div className="PageDetail">
         <div className="title">
-          <h2>Tip Coding Java Untuk Pemula</h2>
-          <h6>by : Admin G2 | Des 8, 2021 | Pendidikan | 0 comments</h6>
+          <h2>{title}</h2>
+          <h6>
+            by : {name} | Des 8, 2021 | Pendidikan | {comment.length} comments
+          </h6>
         </div>
         <div className="PageDetail-wrapper">
-          <Image
-            src="https://insights.g2academy.co/wp-content/uploads/2021/12/Java-tips-for-beginners-scaled.jpg"
-            alt=""
-          />
+          <Image src={`http://localhost:2020/${image}`} alt="" />
           <h5>Spread the love</h5>
           <ul class="social-link">
             <li>
@@ -84,54 +136,37 @@ const PageDetail = () => {
               </a>
             </li>
           </ul>
-          <p>
-            Kiat Pengodean Java untuk Pemula – Digunakan oleh lebih dari 10 juta
-            pengembang dan berjalan di 56 miliar perangkat secara global, Java
-            dengan mudah menjadi salah satu bahasa pemrograman paling populer di
-            luar sana. Banyak pengembang lebih menyukainya daripada yang lain
-            karena fleksibilitas dan portabelnya, memungkinkan mereka untuk
-            menulis kode untuk mesin dari berbagai arsitektur dan platform.
-            Diluncurkan pada awal 90-an, Java telah bertahan dalam ujian waktu.
-            Ini masih banyak digunakan bahkan ketika teknologi terus berkembang.
-            Biasanya, bahasa pemrograman cenderung menjadi usang atau berkurang
-            relevansinya dengan munculnya teknologi baru. Ini karena bahasa
-            harus terus ditingkatkan dan diubah untuk beradaptasi di lingkungan
-            komputasi yang berbeda. Jika tidak, maka itu akan menjadi
-            berlebihan. Meskipun sudah ketinggalan zaman, Java telah terbukti
-            bertahan dan meningkat dengan setiap peningkatan yang dirilis. Untuk
-            alasan ini, Java masih digunakan di setiap sudut; dari desktop dan
-            aplikasi web, hingga konsol game dan ponsel. Itu tidak mungkin
-            menghilang dalam waktu dekat dan kemungkinan besar akan tetap ada
-            bahkan jika pengembang kehilangan minat.
-          </p>
+          <p>{description}</p>
         </div>
-
+        {/* <div className="coment">
+          <h4>0 Comment</h4>
+          <h4>Submit a Comment</h4>
+          
+                <p key={comments.id}>
+                  Username:  <br /> 
+                </p>
+              
+        </div> */}
         <br />
         <div className="coment">
-          <h4>0 Comment</h4>
           <h4>Submit a Comment</h4>
           <p>
             Your email address will not be published. Required fields are marked
             *
           </p>
           <Card>
-            <Form>
+            <Form onSubmit={addCommentHandler}>
               <Form.Group
                 className="mb-3"
                 controlId="exampleForm.ControlInput1"
               >
                 <Form.Label>Username</Form.Label>
-                <Form.Control type="text" placeholder="Username" required />
-              </Form.Group>
-              <Form.Group
-                className="mb-3"
-                controlId="exampleForm.ControlInput2"
-              >
-                <Form.Label>Email address</Form.Label>
                 <Form.Control
-                  type="email"
-                  placeholder="name@example.com"
+                  type="text"
+                  placeholder="Username"
                   required
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                 />
               </Form.Group>
               <Form.Group
@@ -145,12 +180,14 @@ const PageDetail = () => {
                   rows={3}
                   placeholder="Add Your Comment"
                   required
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
                 />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Check
                   required
-                  label="Save my name, email, and website in this browser for the next time I comment."
+                  label="Save my name and website in this browser for the next time I comment."
                   feedback="You must agree before submitting."
                   feedbackType="invalid"
                 />
@@ -158,6 +195,28 @@ const PageDetail = () => {
               <Button type="submit">Submit Comment</Button>
             </Form>
           </Card>
+          <h4>Kirim Komentar</h4>
+          <br />
+
+          <div className="coment">
+            <h4>{comment.length} Komentar</h4>
+
+            <Card>
+              {comment.length > 0 ? (
+                comment.map((comments) => {
+                  return (
+                    <div>
+                      <h5>{comments.username}</h5>
+                      <p>{comments.text}</p>
+                      <hr />
+                    </div>
+                  );
+                })
+              ) : (
+                <p>Belum ada komentar</p>
+              )}
+            </Card>
+          </div>
         </div>
       </div>
     </div>

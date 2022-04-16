@@ -49,8 +49,19 @@ const Home2 = () => {
   }, []);
 
   const getPost = async () => {
-    const post = await axios.get("http://localhost:4000/post");
+    const post = await axios.get("http://localhost:2020/api/post/");
     setPost(post.data);
+  };
+
+  const [category, setCategory] = useState([]);
+
+  useEffect(() => {
+    getCategory();
+  }, []);
+
+  const getCategory = async () => {
+    const category = await axios.get("http://localhost:2020/api/category/");
+    setCategory(category.data);
   };
 
   // const deletePost = async (id) => {
@@ -81,7 +92,7 @@ const Home2 = () => {
                     <div class="blog-card content">
                       <div class="blog-card-banner">
                         <img
-                          src={"assets/" + posts.image}
+                          src={`http://localhost:2020/${posts.image}`}
                           alt=""
                           width="400"
                           class="blog-banner-img"
@@ -90,24 +101,24 @@ const Home2 = () => {
 
                       <div class="blog-content-wrapper">
                         <h3>
-                          <a href="/pageDetail" class="h3">
-                            {posts.judul}
+                          <a href={`/pageDetail/${posts.id}`} class="h3">
+                            {posts.title}
                           </a>
                         </h3>
 
-                        <p class="blog-text">{posts.deskripsi}</p>
+                        <p class="blog-text">{posts.description}</p>
 
                         <div class="wrapper-flex">
                           <div class="wrapper">
                             <a href="#" class="h4">
-                              {posts.nama}
+                              {posts.name}
                             </a>
 
-                            <p class="text-sm">
+                            {/* <p class="text-sm">
                               <time datetime="2021-09-21">
                                 {posts.tanggal_upload}
                               </time>
-                            </p>
+                            </p> */}
                           </div>
                         </div>
                       </div>
@@ -131,26 +142,12 @@ const Home2 = () => {
 
           <div class="aside">
             <div class="topics">
-              <h2 class="h2">Categories</h2>
-              {/* {kategori.map((kategories) => {})} */}
-              <a href="#" class="topic-btn">
-                {/* <div class="icon-box">
-                    <ion-icon name="server-outline"></ion-icon>
-                  </div> */}
-                <p>Pendidikan</p>
-              </a>
-              <a href="#" class="topic-btn">
-                {/* <div class="icon-box">
-                    <ion-icon name="accessibility-outline"></ion-icon>
-                  </div> */}
-                <p>Pembaruan G2 Academy</p>
-              </a>
-              <a href="#" class="topic-btn">
-                {/* <div class="icon-box">
-                    <ion-icon name="rocket-outline"></ion-icon>
-                  </div> */}
-                <p>Teknologi</p>
-              </a>
+              <h2 class="h2">Kategori</h2>
+              {category.map((blog) => (
+                <div class="topic-btn">
+                  <p>{blog.name}</p>
+                </div>
+              ))}
             </div>
             <div class="contact">
               <h2 class="h2">About Us</h2>
@@ -218,53 +215,21 @@ const Home2 = () => {
             </div>
             <div class="newsletter">
               <h2 class="h2">Latest Post</h2>
-              <div class="wrapper">
-                <div class="wrapper-box">
-                  <img
-                    src="https://insights.g2academy.co/wp-content/uploads/2021/11/Siswa-Bootcamp-G2Academy-min-scaled.jpg"
-                    alt=""
-                  />
-                </div>
-                <div class="wrapper-text">
-                  <p>Raih Beasiswa Bootcamp G2Academy Dan Wujudkan Impianmu</p>
-                </div>
-              </div>
-
-              <div class="wrapper">
-                <div class="wrapper-box">
-                  <img
-                    src="https://insights.g2academy.co/wp-content/uploads/2021/11/Siswa-Bootcamp-G2Academy-min-scaled.jpg"
-                    alt=""
-                  />
-                </div>
-                <div class="wrapper-text">
-                  <p>Raih Beasiswa Bootcamp G2Academy Dan Wujudkan Impianmu</p>
-                </div>
-              </div>
-
-              <div class="wrapper">
-                <div class="wrapper-box">
-                  <img
-                    src="https://insights.g2academy.co/wp-content/uploads/2021/11/Siswa-Bootcamp-G2Academy-min-scaled.jpg"
-                    alt=""
-                  />
-                </div>
-                <div class="wrapper-text">
-                  <p>Raih Beasiswa Bootcamp G2Academy Dan Wujudkan Impianmu</p>
-                </div>
-              </div>
-
-              <div class="wrapper">
-                <div class="wrapper-box">
-                  <img
-                    src="https://insights.g2academy.co/wp-content/uploads/2021/11/Siswa-Bootcamp-G2Academy-min-scaled.jpg"
-                    alt=""
-                  />
-                </div>
-                <div class="wrapper-text">
-                  <p>Raih Beasiswa Bootcamp G2Academy Dan Wujudkan Impianmu</p>
-                </div>
-              </div>
+              {post.map((posts) => {
+                return (
+                  <div class="wrapper">
+                    <div class="wrapper-box">
+                      <img
+                        src={`http://localhost:2020/${posts.image}`}
+                        alt=""
+                      />
+                    </div>
+                    <div class="wrapper-text">
+                      <h6>{posts.title}</h6>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
           <ScrollToTop />
